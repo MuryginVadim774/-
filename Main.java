@@ -1,41 +1,41 @@
 public class Main {
-    public static void main(String[] args) throws Exception { // Если метод выкидывает исключения то это должно быть описано ( Throws Exception) - выкидывающий исключения
-        String input = "1 + 9"; // пробел как строка не учитывается
-        System.out.println(calc(input)); // это для того чтоб вывести на экран
+    public static void main(String[] args) throws Exception { 
+        String input = "1 + 9"; 
+        System.out.println(calc(input)); 
     }
 
 
-    public static String calc(String input) throws Exception { // Означает вернуть строчку - результат (String) - этот метод возвращает строчку
-        String[] b = input.split(" "); // цифры и символы массив ( split разделяю строчку на состовляющие через пробел . проблем указан в скобках скобки вот такие [] означает массив строк
-        int a = Integer.parseInt(b[0]);// Записываю в переменную а или какую либо число из строки  Inter.ParseInt из строчки конвентирует в число
-        int c = Integer.parseInt(b[2]); // Записываю в переменную b или какую либо из строки
-        if (a>10 || c>10) { // проверка на правильность цифр
-            throw new Exception("Слишком большие числа"); // выведения ошибки на экран что числа больше чем положено
+    public static String calc(String input) throws Exception { 
+        String[] b = input.split(" ");
+        int a = Integer.parseInt(b[0]);
+        int c = Integer.parseInt(b[2]);
+        if (a>10 || c>10) {
+            throw new Exception("Слишком большие числа");
         }
-        String e = b[1]; // запитал арефметический знак (+)(-)(/)(*)
-        String d = null; // Наш результат d - null -Создал строчку без значения . Я задал значения в Строчках ниже Swith case
+        String e = b[1];
+        String d = null;
 
 
-        switch (e) { // Обращаемся к символу , смотрим на переменную
-            case "+":  // Пример , вариант , то есть если е будет + то сделай то-то
-                d = String.valueOf(a + c);// String . valueof означает значения передать как строчку
-                break; // если не написать break то он продолжит идти вниз , а break прекращает движения строчки вниз
+        switch (e) {
+            case "+":
+                d = String.valueOf(a + c);
+                break;
 
 
-            case "-":  // Пример , вариант , то есть если е будет - то сделай то-то
-                d = String.valueOf(a - c);// String . valueof означает значения передать как строчку
-                break; // если не написать break то он продолжит идти вниз , а break прекращает движения строчки вниз
+            case "-":
+                d = String.valueOf(a - c);
+                break;
 
 
-            case "*":  // Пример , вариант , то есть если е будет * то сделай то-то
-                d = String.valueOf(a * c);// String . valueof означает значения передать как строчку
-                break; // если не написать break то он продолжит идти вниз , а break прекращает движения строчки вниз
+            case "*":
+                d = String.valueOf(a * c);
+                break;
 
 
-            case "/":  // Пример , вариант , то есть если е будет / то сделай то-то
-                d = String.valueOf(a / c);// String . valueof означает значения передать как строчку
-                break; // если не написать break то он продолжит идти вниз , а break прекращает движения строчки вниз
-            default:throw new Exception("Недопустимое действие"); // не + не - не * не / то он выдает ошибку - это стандартное значения
+            case "/":
+                d = String.valueOf(a / c);
+                break;
+            default:throw new Exception("Недопустимое действие");
 
         }
         return d;
